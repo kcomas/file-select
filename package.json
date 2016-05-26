@@ -7,6 +7,7 @@
     "build": "node node_modules/webpack/bin/webpack.js --progress --colors",
     "watch": "node node_modules/webpack/bin/webpack.js --progress --colors --watch",
     "dev": "node node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --colors",
+    "test-api": "node api/api.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

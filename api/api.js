@@ -169,7 +169,7 @@ http.createServer((req, res)=>{
                     if(err){
                         return fail(res);
                     }
-                    send(res, 200, { file: body.file });
+                    send(res, 200, { status: "selected", file: body.file });
                     console.log(loc);
                 });
                 break;

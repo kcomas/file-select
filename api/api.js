@@ -120,7 +120,10 @@ const list = (dir, req, res) =>{
 //listen for requests on 3000
 http.createServer((req, res)=>{
 
-    //only accept post requests
+    //enable cors
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
     if(req.method !== 'POST'){
         return fail(res);
     }

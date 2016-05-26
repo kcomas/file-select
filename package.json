@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "node node_modules/webpack/bin/webpack.js --progress --colors",
+    "watch": "node node_modules/webpack/bin/webpack.js --progress --colors --watch",
+    "dev": "node node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --colors",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +18,12 @@
   "bugs": {
     "url": "https://github.com/kcomas/file-select/issues"
   },
-  "homepage": "https://github.com/kcomas/file-select#readme"
+  "homepage": "https://github.com/kcomas/file-select#readme",
+  "devDependencies": {
+    "css-loader": "^0.23.1",
+    "style-loader": "^0.13.1",
+    "stylus": "^0.54.5",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  }
 }

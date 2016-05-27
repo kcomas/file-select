@@ -62,6 +62,8 @@ class Api {
                 if(json.error){
                     reject(json.error);
                 } else {
+                    //set the cuurent dir
+                    this._currentDir = json.dir;
                     resolve(json);
                 }
             }).catch((err)=>{
@@ -69,6 +71,33 @@ class Api {
             });
         });
     }
+
+    /**
+     * Execute a cmd on the api
+     * @param {object} options - the options object to use
+     * @property {string} action - the api action to execute
+     * @property {string} dir - the directory to use
+     * @property {string} folder - the folder to use in directory moving
+     * @property {string} file - the file to use for selecting
+     * @return {Promise<Objetc>} a promise with the object response
+     */
+    exec(options){
+        /**
+         * The default options
+         * @type {object}
+         * @property {string} dir - the current directory to use
+         */
+        let defaults = {};
+
+        if(this._currentDir){
+            defaults.dir = this._currentDir;
+        }
+
+        Object.assign(defaults, options);
+        
+        return this._post(defaults);
+    }
+
 
 }
 

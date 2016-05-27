@@ -1,4 +1,7 @@
 
+
+"use strict"
+
 /**
  * Simple Nodejs filesytem api
  */

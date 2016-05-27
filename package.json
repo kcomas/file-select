@@ -7,9 +7,9 @@
     "build": "node node_modules/webpack/bin/webpack.js --progress --colors",
     "watch": "node node_modules/webpack/bin/webpack.js --progress --colors --watch",
     "dev": "node node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --colors",
-    "test-api": "node api/api.js",
+    "api": "node api/api.js",
     "doc": "node ./node_modules/jsdoc/jsdoc.js -c jsdoc.config.json",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "karma start"
   },
   "repository": {
     "type": "git",
@@ -26,9 +26,16 @@
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.5.0",
+    "chai": "^3.5.0",
     "css-loader": "^0.23.1",
     "file-loader": "^0.8.5",
     "jsdoc": "^3.4.0",
+    "karma": "^0.13.22",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-mocha": "^1.0.1",
+    "karma-webpack": "^1.7.0",
+    "mocha": "^2.5.3",
     "style-loader": "^0.13.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^2.1.0",

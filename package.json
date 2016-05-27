@@ -8,6 +8,7 @@
     "watch": "node node_modules/webpack/bin/webpack.js --progress --colors --watch",
     "dev": "node node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --colors",
     "test-api": "node api/api.js",
+    "doc": "node ./node_modules/jsdoc/jsdoc.js -c jsdoc.config.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,6 +23,7 @@
   "homepage": "https://github.com/kcomas/file-select#readme",
   "devDependencies": {
     "css-loader": "^0.23.1",
+    "jsdoc": "^3.4.0",
     "style-loader": "^0.13.1",
     "stylus": "^0.54.5",
     "webpack": "^1.13.1",

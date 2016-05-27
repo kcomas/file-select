@@ -27,7 +27,7 @@ const send = (res, code, body) =>{
  */
 const fail = (res) =>{
     res.statusCode = 404;
-    res.end('404');
+    res.end(JSON.stringify({error: '404'}));
 };
 
 /**
@@ -113,7 +113,7 @@ const list = (dir, req, res) =>{
         }
         if(!stats.isDirectory()){
             //return error
-            return send(res, 500, { error: "The requested path is not a dir" });
+            return send(res, 404, { error: "The requested path is not a dir" });
         }
         getFiles();
     });
@@ -126,6 +126,11 @@ http.createServer((req, res)=>{
     //enable cors
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
+    if(req.method === 'OPTIONS'){
+        res.statusCode = 200;
+        res.end();
+    }
 
     if(req.method !== 'POST'){
         return fail(res);

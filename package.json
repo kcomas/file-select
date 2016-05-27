@@ -9,7 +9,7 @@
     "dev": "node node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --colors",
     "api": "node api/api.js",
     "doc": "node ./node_modules/jsdoc/jsdoc.js -c jsdoc.config.json",
-    "test": "karma start"
+    "test": "node ./node_modules/karma/bin/karma start"
   },
   "repository": {
     "type": "git",

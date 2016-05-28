@@ -26,35 +26,46 @@ class FileList extends React.Component {
 
         /**
          * Convert the files object to JSX
-         * @type {JSX}
+         * @type {array}
          */
         let list = this.props.files.map((obj)=>{
+            /**
+             * if directory show folder icon
+             * @type {JSX}
+             */
             let dir = "";
+
             if(obj.isDir){
                 dir = (
                     <span className="glyphicon glyphicon-folder-close"></span>
                 );
             }
+
+            /**
+             * The function to run on file click
+             * @type {function}
+             */
+            let clickFunc = () => {
+                if(obj.isDir){
+                    this.props.cb({
+                        action: 'open',
+                        folder: obj.name
+                    });
+                } else {
+                    this.props.cb({
+                        action: 'select',
+                        file: obj.name
+                    });
+                }
+            };
+
+
             return (
                 <div className="col-md-4 text-left fileButton">
                     <Button 
                         bsStyle="default" 
                         key={obj.name}
-                        onClick={
-                            () => {
-                                if(obj.isDir){
-                                    this.props.cb({
-                                        action: 'open',
-                                        folder: obj.name
-                                    });
-                                } else {
-                                    this.props.cb({
-                                        action: 'select',
-                                        file: obj.name
-                                    });
-                                }
-                            }
-                        }
+                        onClick={clickFunc}
                     >
                     {obj.name} {dir}
                     </Button>
